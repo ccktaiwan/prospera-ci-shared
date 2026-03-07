@@ -1,0 +1,11 @@
+name: Codex Governance
+
+on:
+  push:
+  pull_request:
+
+jobs:
+
+  codex:
+
+    uses: ccktaiwan/prospera-ci-shared/.github/workflows/codex-validation.yml@main
