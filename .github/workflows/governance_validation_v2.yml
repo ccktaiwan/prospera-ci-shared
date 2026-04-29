@@ -1,0 +1,24 @@
+name: "Prospera Governance Validation v2.0"
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  governance-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Three-Class Governance Validation"
+        shell: pwsh
+        run: |
+          $S = 0; $A = 0; $W = 0; $Results = @()
+          if (Test-Path "AGENTS.md") { $S++; $Results += "[VERIFIED] AGENTS.md exists" }
+          else { $A++; $Results += "[ACCEPTABLE_FAIL] AGENTS.md missing" }
+          if (Test-Path "SYSTEM_INDEX.md") { $S++; $Results += "[VERIFIED] SYSTEM_INDEX.md exists" }
+          else { $W++; $Results += "[STRUCTURAL_WARNING] SYSTEM_INDEX.md missing" }
+          foreach ($r in $Results) { Write-Host $r }
+          Write-Host "VERIFIED: $S | ACCEPTABLE_FAIL: $A | STRUCTURAL_WARNING: $W"
+          if ($W -gt 0) { Write-Host "RESULT: STRUCTURAL_WARNING"; exit 1 }
+          elseif ($A -gt 0) { Write-Host "RESULT: ACCEPTABLE_FAIL"; exit 0 }
+          else { Write-Host "RESULT: VERIFIED"; exit 0 }
