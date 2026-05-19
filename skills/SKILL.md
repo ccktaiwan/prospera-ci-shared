@@ -40,8 +40,8 @@ Skills 是 ProsperaGen Engineering DNA 的執行觸發器。
 | SKILL-06 | 多步驟任務每完成一個重要步驟後 | 任務中斷失憶、誤刪 artifacts | 要素八 J 點 | SKILL-06.md |
 | SKILL-07 | 任何文件提交前 | 文件深度不足、無法工程實作 | 要素三、五、七 | SKILL-07.md |
 | SKILL-08 | 每個新機制或新引擎建立後 | IP 未登記、核心邏輯外洩 | 要素十 | SKILL-08.md |
-| SKILL-09 | 每週治理掃描 / Level 升級前 / archive 救援前 | Repo 健康診斷、Level 升級、99_archive 救援 | 要素六 | SKILL-09.md |
-| SKILL-10 | 任何 AI 交接前 | 多 AI 交接協議、token 浪費防止 | 要素八 | SKILL-10.md |
+| SKILL-09 | 任何 99_archive 救援或檔案遷移前 | 救援流程不一致、artifacts 遺失 | 要素八 | SKILL-09.md |
+| SKILL-10 | 任何新 repo 建立或 repo 封存前 | Repo 命名混亂、封存不完整 | 要素六、九 | SKILL-10.md |
 
 ---
 
