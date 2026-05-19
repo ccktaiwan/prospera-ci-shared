@@ -79,5 +79,11 @@ open(os.path.join(github_dir, fname), "w", encoding="utf-8").write(content)
 open(os.path.join(onedrive_dir, fname), "w", encoding="utf-8").write(content)
 print(f"[OK] {fname}")
 
+content = '# SKILL-CORE｜ProsperaGen AI Execution Core\n## Document Header\n- Document Type: Codex\n- Version: v1.0\n- Status: Approved\n- Owner: prospera-ci-shared/skills/\n- Governing Authority: prospera-engineering-codex v1.0\n- DNA Reference: 要素一～十（全部）\n- Last Updated: 2026-05-19\n\n---\n\n## 1. 強制讀取規則\n\n**每次任務開始前**：讀完本文件再執行。\n**特定情境**：查 §6 → 讀對應完整 Skill → 再執行。\n不讀直接執行 = Governance Breach → CI 自動 BLOCK。\n\n---\n\n## 2. 標準任務流程\n\n```\n[開始] → 讀 SKILL-CORE §6 → 讀對應 Skill → 執行\n       → 每完成重要步驟 → Checkpoint (SKILL-06)\n       → git commit 前 → Pre-flight (SKILL-04)\n       → 新錯誤 → 補進 known_failures.md\n```\n\n---\n\n## 3. 命名規則\n\n```\n目錄：全小寫    ✅ 00_governance  ❌ 00_GOVERNANCE\n檔案：全大寫    ✅ README.md      ❌ readme.md\n```\n\n---\n\n## 4. Commit Message 格式\n\n```\n[Phase][Layer] 動作: 描述 (為什麼) ≤ 72 字元\n範例：[P3][L2] feat: add authority-matrix (enforce access boundary)\n禁用：update / fix / change / misc / WIP\n```\n\n---\n\n## 5. AI Header 必要欄位\n\n```\nGenerated / Model / Phase / Layer / Target Repo / Governing Codex / Human-Reviewed\n```\n\n---\n\n## 6. Skill 查閱表\n\n| Skill | 觸發條件 | 完整文件 |\n|-------|---------|----------|\n| SKILL-01 | 任何 .yml 寫入或修改前 | SKILL-01.md |\n| SKILL-02 | 任何目錄建立或 git mv 前 | SKILL-02.md |\n| SKILL-03 | 任何 token/PAT/secret 操作前 | SKILL-03.md |\n| SKILL-04 | 任何 git commit 前 | SKILL-04.md |\n| SKILL-05 | 每次任務開始前 + 每個 Stage 完成後 | SKILL-05.md |\n| SKILL-06 | 多步驟任務每完成一個重要步驟後 | SKILL-06.md |\n| SKILL-07 | 任何文件提交前 | SKILL-07.md |\n| SKILL-08 | 每個新機制或新引擎建立後 | SKILL-08.md |\n| SKILL-09 | 任何 99_archive 救援或檔案遷移前 | SKILL-09.md |\n| SKILL-10 | 任何新 repo 建立或 repo 封存前 | SKILL-10.md |\n\n---\n\n*v1.0 · 2026-05-19 · prospera-ci-shared/skills/ · Kevin Chang（張淳嘉）*\n'
+fname = 'SKILL-CORE.md'
+open(os.path.join(github_dir, fname), "w", encoding="utf-8").write(content)
+open(os.path.join(onedrive_dir, fname), "w", encoding="utf-8").write(content)
+print(f"[OK] {fname}")
+
 print("[DONE] All files written")
 print("GitHub:", os.listdir(github_dir))
