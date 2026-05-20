@@ -203,4 +203,24 @@ CI 失敗時：
 
 ---
 
+## KF-008｜99_archive 硬編碼路徑
+
+- 症狀：救回的程式碼有 `C:\Prospera_Audit` 或其他絕對路徑硬編碼，換機器即 FileNotFoundError
+- 根本原因：archive 時路徑未參數化，直接寫死 Windows 本機路徑
+- 影響 Repo：prospera-os（consulting_pipeline_v1.py）、prospera-governance-dashboard（dashboard logs）
+- 標準修法：
+  ```python
+  import os
+  from pathlib import Path
+
+  # 取代硬編碼路徑
+  BASE = Path(os.environ.get("PROSPERA_AUDIT_PATH", Path(__file__).parent.parent))
+  # LOG_PATH 改用 __file__ 相對路徑
+  LOG_PATH = Path(__file__).parent.parent / "reports" / "governance_logs.jsonl"
+  ```
+- 首次發現：2026-05-20
+- DNA 要素：要素五（可工程實作）
+
+---
+
 *v1.0 · 2026-05-19 · prospera-ci-shared/skills/ · Append-only*
